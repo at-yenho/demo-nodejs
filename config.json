@@ -1,0 +1,6 @@
+{
+    "jwt": {
+        "private_key": "my_private_key",
+        "expired": 604800
+    }
+}

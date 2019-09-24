@@ -1,0 +1,49 @@
+{
+  "name": "hello-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "@line/bot-sdk": "^6.8.2",
+    "app-root-path": "^2.1.0",
+    "bluebird": "^3.5.4",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.19",
+    "multer": "^1.4.1",
+    "node-env-file": "^0.1.8",
+    "nodemon": "^1.18.10",
+    "path": "^0.12.7",
+    "pg": "^7.8.2",
+    "pug": "^2.0.3",
+    "sleep": "^6.0.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "rxjs": "^6.4.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsrnd/hello-node.git"
+  },
+  "author": "at-yenho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsrnd/hello-node/issues"
+  },
+  "homepage": "https://github.com/tsrnd/hello-node#readme"
+}
