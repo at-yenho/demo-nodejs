@@ -7,15 +7,7 @@ const config = {
     channelSecret: '9749f4ffa0b09b2836193f9c47e3c83f'
 }
 module.exports = function(app) {
-    app.get('/users', middleware.isAuthorized, user_handler.getAllUsers);
-    
-    app.get('/users/:id', middleware.isAuthorized, user_handler.getUser);
-    
-    app.delete('/users/:id', middleware.isAuthorized, user_handler.deleteUser);  
-
-    app.post('/login', user_handler.login);
-
-    app.get('/profile', middleware.isAuthorized, user_handler.profile);
+    app.get('/users', user_handler.getAllUsers);
     app.post('/webhook', middlewareWebhook(config), (req, res) => {
         res.json(req.body.events)
     })

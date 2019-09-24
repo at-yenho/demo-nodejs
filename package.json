@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "engines": {
+    "node": "11.10.1",
+    "npm": "6.9.0"
+  },
   "dependencies": {
     "@line/bot-sdk": "^6.8.2",
     "app-root-path": "^2.1.0",
@@ -34,7 +38,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "node app.js"
+    "debug": "nodemon --legacy-watch --watch ./ --inspect=0.0.0.0:9222 --nolazy ./day4_week2/rest/app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
