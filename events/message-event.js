@@ -1,6 +1,7 @@
 const line = require('@line/bot-sdk');
 var fs = require("fs");
 const request = require('request');
+const ms = require('./messages');
 
 const client = new line.Client({
   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN || 'myaccesstoken'
@@ -57,6 +58,26 @@ const processPostbackMessage = (event) => {
     messages = {
         type: "text",
         text: "You chosen"
+    }
+    if (data) {
+        if (data.action == 'answer-later') {
+            messages = {
+                type: "text",
+                text: "OK! See you later"
+            }
+        } else if (data.action == 'start-answer') {
+            messages = ms.default_messages[1];
+        } else if (data.action == 'answer') {
+            if (data.messageID  > 2) {
+                messages = ms.default_messages[data.messageID + 1];
+
+            } else {
+                messages = {
+                    type: "text",
+                    text: "Your recommended Wills is 'https://link-recommendedwills/shshdsb'"
+                }
+            }
+        }
     }
     client.replyMessage(event.replyToken, messages)
     .then(() => {

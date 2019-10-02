@@ -2,6 +2,7 @@
 var user_handler = require(__dirname+'/user/user_handler');
 const middlewareWebhook = require('@line/bot-sdk').middleware;
 const messageEventProcessor = require('./events/message-event');
+const messageFollowProcessor = require('./events/follow-event');
 const config = {
     channelSecret: '9749f4ffa0b09b2836193f9c47e3c83f'
 };
@@ -12,7 +13,8 @@ module.exports = function (app) {
         console.log('event', req.body.event);
         Array.from(req.body.events).map((event) => {
             console.log(event);
-            // messageEventProcessor(event);
+            messageEventProcessor(event);
+            messageFollowProcessor(event);
         })
         res.status(200);
     });
