@@ -11,7 +11,8 @@ module.exports = function (app) {
     app.post('/webhook', middlewareWebhook(config), (req, res) => {
         console.log('event', req.body.event);
         Array.from(req.body.events).map((event) => {
-            messageEventProcessor(event);
+            console.log(event);
+            // messageEventProcessor(event);
         })
         res.status(200);
     });
