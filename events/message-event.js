@@ -1,7 +1,74 @@
 const line = require('@line/bot-sdk');
 var fs = require("fs");
 const request = require('request');
-const ms = require('./messages');
+const default_messages = {
+    1: {
+        type: "flex",
+        altText: "Your gender?",
+        contents: {
+            type: "bubble",
+            body: {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                    {
+                        type: "button",
+                        action: {
+                            type: "postback",
+                            label: "Male",
+                            data: "{\"action\":\"answer\", \"messageID\": 1}",
+                            text: "Male"
+                        },
+                        color: "#0000ff"
+                    },
+                    {
+                        type: "button",
+                        action: {
+                            type: "postback",
+                            label: "Female",
+                            data: "{\"action\":\"answer\", \"messageID\": 1}",
+                            text: "Female"
+                        },
+                        color: "#fe539f"
+                    }
+                ]
+            }
+        }
+    },
+    2: {
+        type: "flex",
+        altText: "Where do you live?",
+        contents: {
+            type: "bubble",
+            body: {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                    {
+                        type: "button",
+                        action: {
+                            type: "postback",
+                            label: "Japan",
+                            data: "{\"action\":\"answer\", \"messageID\": 2}",
+                            text: "Japan"
+                        },
+                        color: "#0000ff"
+                    },
+                    {
+                        type: "button",
+                        action: {
+                            type: "postback",
+                            label: "Other",
+                            data: "{\"action\":\"answer\", \"messageID\": 2}",
+                            text: "Other"
+                        },
+                        color: "#fe539f"
+                    }
+                ]
+            }
+        }
+    }
+}
 
 const client = new line.Client({
   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN || 'myaccesstoken'
@@ -66,10 +133,10 @@ const processPostbackMessage = (event) => {
                 text: "OK! See you later"
             }
         } else if (data.action == 'start-answer') {
-            messages = ms.default_messages[1];
+            messages = default_messages[1];
         } else if (data.action == 'answer') {
             if (data.messageID  > 2) {
-                messages = ms.default_messages[data.messageID + 1];
+                messages = default_messages[data.messageID + 1];
 
             } else {
                 messages = {
