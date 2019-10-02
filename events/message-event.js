@@ -155,7 +155,7 @@ const processPostbackMessage = (event) => {
         } else if (data.action == 'start-answer') {
             messages = default_messages[1];
         } else if (data.action == 'answer') {
-            if (data.messageID  > 2) {
+            if (data.messageID  < 2) {
                 messages = default_messages[data.messageID + 1];
 
             } else {

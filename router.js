@@ -10,12 +10,17 @@ const config = {
 module.exports = function (app) {
     app.get('/users', user_handler.getAllUsers);
     app.post('/webhook', middlewareWebhook(config), (req, res) => {
-        console.log('event', req.body.event);
-        Array.from(req.body.events).map((event) => {
-            console.log(event);
-            messageEventProcessor(event);
-            messageFollowProcessor(event);
-        })
-        res.status(200);
+        try {
+            console.log('event', req.body.event);
+            Array.from(req.body.events).map((event) => {
+                console.log(event);
+                messageEventProcessor(event);
+                messageFollowProcessor(event);
+            })
+        } catch (error) {
+            console.log('some err: ', error);            
+        } finally {
+            res.status(200);
+        }
     });
 };
