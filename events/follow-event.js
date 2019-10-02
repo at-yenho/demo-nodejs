@@ -13,6 +13,16 @@ const processFollow = (event) => {
             altText: "Do you want to answer some question to get recommended Wills",
             contents: {
                 type: "bubble",
+                header: {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                        {
+                            type: "text",
+                            text: "Do you want to answer some question to get recommended Wills"
+                        }
+                    ]
+                },
                 body: {
                     type: "box",
                     layout: "vertical",

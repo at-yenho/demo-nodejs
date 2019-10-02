@@ -7,6 +7,16 @@ const default_messages = {
         altText: "Your gender?",
         contents: {
             type: "bubble",
+            header: {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                    {
+                        type: "text",
+                        text: "Your gender?"
+                    }
+                ]
+            },
             body: {
                 type: "box",
                 layout: "vertical",
@@ -40,6 +50,16 @@ const default_messages = {
         altText: "Where do you live?",
         contents: {
             type: "bubble",
+            header: {
+                type: "box",
+                layout: "vertical",
+                contents: [
+                    {
+                        type: "text",
+                        text: "Where do you live?"
+                    }
+                ]
+            },
             body: {
                 type: "box",
                 layout: "vertical",
@@ -155,24 +175,24 @@ const processPostbackMessage = (event) => {
     });
 }
 const processTextMessage = (event) => {
-    const messages = [
-        {
-            type: "text",
-            text: "You, user"
-        },
-        {
-            type: "text",
-            text: "May I help you?"
-        }
-    ];
-    console.log('The message is: ', event.message);
-    client.replyMessage(event.replyToken, messages)
-    .then(() => {
-        console.log('Reply messages success')
-    })
-    .catch((err) => {
-        console.log('Reply messages errors: ', err)
-    });
+    // const messages = [
+    //     {
+    //         type: "text",
+    //         text: "You, user"
+    //     },
+    //     {
+    //         type: "text",
+    //         text: "May I help you?"
+    //     }
+    // ];
+    // console.log('The message is: ', event.message);
+    // client.replyMessage(event.replyToken, messages)
+    // .then(() => {
+    //     console.log('Reply messages success')
+    // })
+    // .catch((err) => {
+    //     console.log('Reply messages errors: ', err)
+    // });
 };
 
 module.exports = (event) => {
