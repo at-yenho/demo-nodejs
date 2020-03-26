@@ -103,5 +103,17 @@ module.exports = {
     },
     "profile": (req, res) => {
         res.end(JSON.stringify(req.user));        
-    }
+    },
+    "check": (req, res) => {
+        try {
+            function function2() {
+                console.log('wait 3 second and success')
+                res.end("successful!");
+            }
+            setTimeout(function2, 3000);
+        } catch (error) {
+            console.log('some err: ', error);            
+        } finally {
+        }
+    },
 }

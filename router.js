@@ -23,4 +23,5 @@ module.exports = function (app) {
             res.status(200);
         }
     });
+    app.post('/check-webhook',  user_handler.check);
 };
